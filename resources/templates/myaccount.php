@@ -62,3 +62,7 @@ elseif($url[4]=="edit-personal")
 {
     require_once("../resources/templates/editpersonal.php");
 }
+elseif($url[4]=="history")
+{
+    require_once("../resources/templates/pagehistory.php");
+}

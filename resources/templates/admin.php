@@ -45,6 +45,9 @@ require_once ("../resources/core/functions.php");
         } elseif ($url[4] == "category") {
             echo "<h1 class='admintitle'> Surfdome Categories </h1>";
         }
+        elseif ($url[4] == "reports") {
+            echo "<h1 class='admintitle'> Admin Reports </h1>";
+        }
         ?>
         <section id="lander">
             <?php
@@ -146,6 +149,8 @@ require_once ("../resources/core/functions.php");
                 require_once("../resources/templates/checkfirst.php");
             } elseif ($url[4] == "products" && $url[5] === 'add') {
                 require_once("../resources/templates/addproduct.php");
+            } elseif ($url[4] == "reports") {
+                require_once("../resources/templates/adminreports.php");
             }
 
             ?>
@@ -189,5 +194,7 @@ require_once ("../resources/core/functions.php");
     </section>
     <a href="./">
         <section id='closeadmin'>Close Admin Panel</section>
+    </a><a href="./admin/reports/">
+        <section id='adminreports'>Admin Reports</section>
     </a>
 </header>

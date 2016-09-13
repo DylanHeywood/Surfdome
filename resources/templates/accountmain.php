@@ -94,7 +94,24 @@ echo "<h2 class='infohead'>Your Information</h2>";
         </div>
         <div class='profileinfo'>";
             echo $row['Country'];
-            echo "</div></div>";
+            echo "</div>
+        </div>";
+        echo "<div class='profilerow'>
+        <div class='profilelabel'>
+            Page Hits:
+        </div>
+        <div class='profileinfo'>";
+        $qry = "SELECT COUNT(*) as hits FROM pagehits WHERE UserID = ?";
+        $stmt = $con->prepare($qry);
+        $stmt->bind_param('s', $ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc())
+        {
+            echo $row['hits']." ";
+        }
+        echo " <a id='history' href='./my-account/history/'>Show History</a></div>
+        </div>";
     }
     echo "<a href='./my-account/edit-personal/'><div id='updatepass'> Edit Personal </div></a>";
     echo "<a href='./my-account/edit-address/'><div id='updatepass'> Edit Address </div></a>";

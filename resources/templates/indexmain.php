@@ -14,16 +14,18 @@ echo "<section id='products'>
                 echo "<div id='new1'>";
                   while($i<= 6 && $row = $productnames->fetch_array())
                     {
-                        $qry2 = "SELECT URL from images WHERE ProductID =". $row['ID']."";
+                        $name = $row['Name'];
+                        $name = str_replace(" ","-",$name);
+                        $qry2 = "SELECT URL from images WHERE ProductID =". $row['ID']." LIMIT 1";
                         $stmt2 = $con->prepare($qry2);
                         $stmt2->execute();
                         $result2 = $stmt2->get_result();
-                        $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ID']."";
+                        $qry3 = "SELECT Price as price from purchases WHERE ProductID =". $row['ID']." LIMIT 1";
                         $stmt3 = $con->prepare($qry3);
                         $stmt3->execute();
                         $result3 = $stmt3->get_result();
                         echo "
-                        <div class='product'>";
+                        <a class='nostyle' href='./product/".$name."/'><div class='product'>";
                             while($row2 = $result2->fetch_assoc())
                             {
                                 echo "<div class='productimg'> <img src='".$row2['URL']."'</img></div> ";
@@ -31,19 +33,19 @@ echo "<section id='products'>
                             echo "<div class='productname'> Product: ".$row['Name']."</div>";
                             while($row3 = $result3->fetch_assoc())
                             {
-                                echo "<div class='productprice'>£".$row['Price']."</div>";
+                                echo "<div class='productprice'>£".$row3['price']."</div>";
                             }
-                        echo "</div>";
+                        echo "</div></a>";
                       $i++;
                     }
                     echo "</div><div id='new2'>";
                    while($i <= 12 && $i>6 && $row = $productnames->fetch_array())
                    {
-                       $qry2 = "SELECT URL from images WHERE ProductID =". $row['ID']."";
+                       $qry2 = "SELECT URL from images WHERE ProductID =". $row['ID']." LIMIT 1";
                        $stmt2 = $con->prepare($qry2);
                        $stmt2->execute();
                        $result2 = $stmt2->get_result();
-                       $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ID']."";
+                       $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ID']." LIMIT 1";
                        $stmt3 = $con->prepare($qry3);
                        $stmt3->execute();
                        $result3 = $stmt3->get_result();
@@ -73,11 +75,11 @@ echo "<section id='products'>
                 echo "<div id='top1'>";
                   while($i<= 3 && $row = $productnames->fetch_array())
                   {
-                    $qry2 = "SELECT URL from images WHERE ProductID =". $row['ProductID']."";
+                    $qry2 = "SELECT URL from images WHERE ProductID =". $row['ProductID']." LIMIT 1";
                     $stmt2 = $con->prepare($qry2);
                     $stmt2->execute();
                     $result2 = $stmt2->get_result();
-                    $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ProductID']."";
+                    $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ProductID']." LIMIT 1";
                     $stmt3 = $con->prepare($qry3);
                     $stmt3->execute();
                     $result3 = $stmt3->get_result();

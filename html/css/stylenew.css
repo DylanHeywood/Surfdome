@@ -614,7 +614,8 @@ header
 {
    height: 380px;
     background-image: url(../images/banner3.jpg);
-    background-size: cover; 
+    background-size: cover;
+    background-position: 30%;
 }
 .ALT
 {
@@ -679,6 +680,14 @@ header
     width: 50%;
     display: inline-block;
 }
+#breadcrumb a
+{
+    text-decoration: none;
+    text-transform: none;
+    color: #888;
+    font-weight: 100;
+    font-family:  'Roboto', sans-serif;
+}
 #returnpage
 {
     text-align: right;
@@ -690,6 +699,14 @@ header
     text-indent: 20px;
     width: 40%;
     display: inline-block;
+}
+#returnpage a
+{
+    text-decoration: none;
+    text-transform: none;
+    color: #888;
+    font-weight: 100;
+    font-family:  'Roboto', sans-serif;
 }
 .filters
 {
@@ -780,6 +797,10 @@ header
     display: inline-block;
     margin-top: 20px;
 }
+.productimages img:hover
+{
+
+}
 #productinfo
 {
     display: inline-block;
@@ -820,7 +841,6 @@ header
 {
     text-align: right;
     margin-top: 20px;
-    
     display: inline-block;
     height: 50px;
     width: 50%;
@@ -830,7 +850,7 @@ header
     font-size: 12px;
     color: black;
     text-align: right;
-    margin-right: 0px;
+    margin-right: 10px;
 }
 
 #productinfo hr
@@ -874,6 +894,13 @@ header
     margin-top: 20px;
     margin-bottom: 20px;
 }
+#productsize h4
+{
+    display: inline-block;
+}
+#productsize select{
+    display: inline-block;
+}
 #productqty
 {
    margin-top: 20px;
@@ -889,6 +916,10 @@ header
     font-size: 30px;
     line-height: 20px;
 }
+#plus:hover
+{
+    cursor: pointer;
+}
 #buybtn
 {
     width: 150px;
@@ -903,7 +934,10 @@ header
     font-family: 'Roboto', sans-serif;
     text-align: center;
     font-weight: 100;
-    
+}
+#buybtn:hover
+{
+    cursor: pointer;
 }
 #description p
 {
@@ -1516,6 +1550,15 @@ button:hover
     color: white;
     padding: 5px;
 }
+#adminreports
+{
+    position: fixed;
+    bottom: 3px;
+    right: 5px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
 .noarrow {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1647,13 +1690,221 @@ button:hover
     margin: auto auto;
     margin-top: 50px;
 }
+.nostyle
+{
+    text-decoration: none;
+    color: #333;
+}
+.zoomLens
+{
+    height: 300px!important;
+    width: 300px!important;
+}
+.zoomWindow
+{
+    background-size: contain!important;
+}
+.baskethead
+{
+    width: 90%;
+    border-radius: 2%;
+    background-color: #DDD;
+    height: 50px;
+    margin: auto auto;
+    border: 1px solid #AAA;
+    margin-top: 5px;
+}
+.basketheadsection
+{
+    display: inline-block;
+    width: 19%;
+    line-height:25px;
+    vertical-align: middle;
+}
+.basketcontent
+{
+    width: 90%;
+    margin: auto auto;
+    vertical-align: top;
+}
+.qtybask
+{
+    display: inline-block;
+    margin: 0px;
+}
+.qtysym
+{
+    display: inline-block;
+    background-color: #777;
+    color: white;
+    margin: 0px;
+    border: 1px solid #777;
+    height: 20px;
+}
+.qtysym:hover
+{
+    cursor: pointer;
+}
+b:hover
+{
+    cursor: pointer;
+}
+.basketform
+{
+    display: inline;
+}
+.basketbtn
+{
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+.basketbtn:hover
+{
+    cursor: pointer;
+}
+#basktotal
+{
+    float: right;
+    font-weight:100;
+    font-size: 15px;
+}
+.deliveryoptn
+{
+    width: 60%;
+    margin-left: 2%;
+    display: inline-block;
+}
+.summary
+{
+    border: 5px solid #DDD;
+    width: 33%;
+    float: right;
+    display: inline-block;
+    margin-right: 1%;
+    background-color: white;
+    height: 500px;
+}
+#summaryh1
+{
+    width: 100%!important;
+    font-size: 16px!important;
+    float: left;
+    display: inline-block;
+}
+.deliveroptns
+{
+    background-color: white;
+    border: 1px solid #777;
+    line-height:30px;
+}
+#del2
+{
+    display: none;
+}
+#del3
+{
+    display: none;
+}
+.deliveryaddr
+{
+    background-color: #DDD;
+    width: 90%;
+    margin: auto auto;
+    margin-top: 10px;
+}
+.deliverleft
+{
+    width: 100%;
+    text-align: center;
+}
+u:hover
+{
+    cursor: pointer;
+}
+#addresses
+{
+    display: none;
+    margin: auto auto;
+}
+.payment
+{
+    height: 30%;
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.payment:nth-child(1)
+{
+    background-color: white;
+    border-radius: 10%;
+    text-decoration: none;
+    color: black;
+}
+#history
+{
+    font-size: 17px;
+    text-transform: none;
+    color: #333;
+    text-decoration: underline;
+}
+.historyrow
+{
+    font-size: 12px;
+}
+.historyrow:hover
+{
+    background-color: #fff;
+    cursor:pointer;
+}
+.historytime
+{
+    display: inline-block;
+    text-align: left;
+    width: 19%;
+}
+.historyurl
+{
+    text-align: left!important;
+    padding-left:1%;
+    width: 70%;
+    display: inline-block;
+    padding-right: 20px;
+    border-right: 1px solid #333;
+}
+.historyrow a
+{
+    font-size: 12px;
+    text-transform: lowercase!important;
+    color: #333;
+}
 
-
-
-
-
-
-
+.historytitle
+{
+    text-decoration: underline;
+    font-size: 16px;
+    text-align: center!important;
+    margin-bottom: 10px;
+}
+.nostock
+{
+    background-color: #BB5555;
+    padding: 5px;
+    border-bottom: 1px solid #777;
+}
+.ltdstock
+{
+    background-color: #E6AB4E;
+    padding: 5px;
+    border-bottom: 1px solid #777;
+}
+.instock
+{
+    background-color: #55BB55;
+    padding: 5px;
+    border-bottom: 1px solid #777;
+}
 
 
 

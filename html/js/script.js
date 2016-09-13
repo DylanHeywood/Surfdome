@@ -1,5 +1,12 @@
 var textslide = 1;
-
+$(
+    function ()
+    {
+        $("#mainimage").elevateZoom({
+            scrollZoom : false
+        });
+    }
+)
 function moveright()
 {
     if(textslide == 1)
@@ -268,3 +275,62 @@ function checkpw()
         document.getElementById("newpwconfirm").style.border="1px solid green";
     }
 }
+
+function plus()
+{
+    var textBox = document.getElementById("jsqty");
+    var a = textBox.value;
+    a++;
+    textBox.value = a;
+}
+function minus() {
+    var textBox = document.getElementById("jsqty");
+    var a = textBox.value;
+    if (a == 0)
+    {
+        a = 1;
+    }
+    a--;
+    textBox.value = a;
+}
+function image(src)
+{
+    $(".zoomWindow").css({
+        "background-image":"url("+src+")",
+    });
+    $(".zoomWindow").css("background-size","contain!important");
+    document.getElementById("mainimage").src = src;
+}
+
+function updateDel(a)
+{
+    if(a.value == 1)
+    {
+        document.getElementById("del1").style.display = "inline-block";
+        document.getElementById("del2").style.display = "none";
+        document.getElementById("del3").style.display = "none";
+    }
+    else if(a.value == 2)
+    {
+        document.getElementById("del2").style.display = "inline-block";
+        document.getElementById("del1").style.display = "none";
+        document.getElementById("del3").style.display = "none";
+    }
+    else if(a.value == 3)
+    {
+        document.getElementById("del3").style.display = "inline-block";
+        document.getElementById("del1").style.display = "none";
+        document.getElementById("del2").style.display = "none";
+    }
+}
+function changeAddress()
+{
+    document.getElementById("changeAddr").style.display = "none";
+    document.getElementById("addresses").style.display = "block";
+}
+function updateAddress()
+{
+    document.getElementById("changeAddr").style.display = "block";
+    document.getElementById("addresses").style.display = "none";
+}
+
