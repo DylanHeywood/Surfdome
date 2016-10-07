@@ -109,6 +109,10 @@ echo "<div class='admntop'></div>";
                 echo $row['Name']." - ".$quantity."<BR></div>";
             }
         }
+        elseif($url[5]=="sale-reports")
+        {
+            require_once("../resources/templates/salesreports.php");
+        }
         else
         {
             echo "

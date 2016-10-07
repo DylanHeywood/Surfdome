@@ -248,7 +248,7 @@ header
     font-size: 15pt;
     display: inline-block;
     text-align: center;
-    width: 27px;
+    width: 9%;
     background-color: white;
     margin-left: -4px;
     height: 27px;
@@ -1692,6 +1692,7 @@ button:hover
 }
 .nostyle
 {
+    text-transform: none!important;
     text-decoration: none;
     color: #333;
 }
@@ -1784,7 +1785,6 @@ b:hover
     display: inline-block;
     margin-right: 1%;
     background-color: white;
-    height: 500px;
 }
 #summaryh1
 {
@@ -1905,10 +1905,79 @@ u:hover
     padding: 5px;
     border-bottom: 1px solid #777;
 }
-
-
-
-
+.ws-date
+{
+    border: 1px solid black!important;
+}
+#changeAddr
+{
+    margin-top: 5px;
+    text-decoration: underline;
+}
+#changeAddr:hover
+{
+    cursor: pointer;
+}
+.checkoutProduct
+{
+    width: 90%;
+    margin: auto auto;
+    margin-top: 5px;
+}
+.checkoutProducts
+{
+    height: 150px;
+    width: 100%;
+    margin-top: 10px;
+}
+.checkoutImage
+{
+    float:left;
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.checkoutDetails
+{
+    float:right;
+    height: 100px;
+    width: 45%;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.checkoutImage img
+{
+    height: 100px;
+    width: 100px;
+}
+.checkoutInfo
+{
+    margin-top: 5px;
+}
+.checkoutTotal
+{
+    text-align: right;
+    margin-right: 5px;
+}
+.left
+{
+    margin-top: 10px;
+    display: inline-block;
+    width: 50%;
+}
+.right
+{
+    margin-top: 10px;
+    display: inline-block;
+    width: 49%;
+}
+.grandTotal
+{
+    margin-bottom: 20px;
+}
 
 
 

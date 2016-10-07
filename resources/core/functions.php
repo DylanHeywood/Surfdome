@@ -1,9 +1,9 @@
 <?php
 class Validate
 {
-    function validateName($name)
+    public static function validateName($name)
     {
-        $regex = "^\d*[a-zA-Z][a-zA-Z0-9]*$";
+        $regex = "^[a-zA-Z0-9]{1,500}$^";
         if (preg_match($regex, $name)) {
             return true;
         } else {
@@ -23,7 +23,7 @@ class Validate
 
     public static function validateCost($cost)
     {
-        $regex = "\d{1,3}[,\\.]?(\\d{1,2})?";
+        $regex = "^(?!0+(\.0+)?$)\d{0,10}(.\d{1,2})?$^";
         if (preg_match($regex, $cost)) {
             return true;
         } else {

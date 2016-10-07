@@ -5,6 +5,8 @@ if(Validate::validateName($_POST['name']))
 }
 else
 {
+    echo "name";
+    die();
     $_SESSION['producterror']="name";
     $_SESSION['productname']=$_POST['name'];
     $_SESSION['productdesc']=$_POST['description'];
@@ -19,6 +21,8 @@ if(Validate::validateName($_POST['description']))
 }
 else
 {
+    echo "desc";
+    die();
     $_SESSION['producterror']="desc";
     $_SESSION['productname']=$_POST['name'];
     $_SESSION['productdesc']=$_POST['description'];
@@ -33,6 +37,8 @@ if(Validate::validateName($_POST['overview']))
 }
 else
 {
+    echo "overview";
+    die();
     $_SESSION['producterror']="over";
     $_SESSION['productname']=$_POST['name'];
     $_SESSION['productdesc']=$_POST['description'];
@@ -47,6 +53,8 @@ if(Validate::validateCost($_POST['price']))
 }
 else
 {
+    echo "COST";
+    die();
     $_SESSION['producterror']="price";
     $_SESSION['productname']=$_POST['name'];
     $_SESSION['productdesc']=$_POST['description'];

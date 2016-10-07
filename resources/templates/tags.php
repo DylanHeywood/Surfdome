@@ -9,9 +9,9 @@
         {
             foreach($productnames as $name)
             {
-                echo "<div class='producttag'>";
+                echo "<a class='nostyle' href='./product/".$name."'><div class='producttag'>";
                 echo $name;
-                echo "</div>";
+                echo "</div></a>";
             }
 
         }

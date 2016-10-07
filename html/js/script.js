@@ -2,6 +2,37 @@ var textslide = 1;
 $(
     function ()
     {
+        var id = $("#hiddenID").val();
+        $.ajax(
+            {
+
+                url: "../ajax/deliveryaddresses.php",
+                type: "get",
+                datatype: "json",
+                data: {id:id},
+                success: function (data) {
+                    $("#addressdiv").empty();
+                    $("#addressdiv").html(data.FirstLine + "<Br>" + data.City + "<br>" + data.County + "<br>" + data.Country + "<br>" + data.Postcode);
+                },
+            })
+
+        $( "#addresses" ).change(function() {
+            var addr = $("#addresses option:selected").val();
+            $.ajax(
+                {
+
+                    url: "../ajax/deliveryaddresses.php",
+                    type: "get",
+                    datatype: "json",
+                    data: {id:id,
+                           address:addr},
+                    success: function (data) {
+                        $("#addressdiv").html(data.FirstLine + "<Br>" + data.City + "<br>" + data.County + "<br>" + data.Country + "<br>" + data.Postcode);
+                    },
+                })
+        });
+
+
         $("#mainimage").elevateZoom({
             scrollZoom : false
         });
@@ -309,18 +340,28 @@ function updateDel(a)
         document.getElementById("del1").style.display = "inline-block";
         document.getElementById("del2").style.display = "none";
         document.getElementById("del3").style.display = "none";
+        $("#deliveryCost").empty();
+        $("#deliveryCost").html("Free");
     }
     else if(a.value == 2)
     {
         document.getElementById("del2").style.display = "inline-block";
         document.getElementById("del1").style.display = "none";
         document.getElementById("del3").style.display = "none";
+        $("#deliveryCost").empty();
+        $("#deliveryCost").html("£4.99");
     }
     else if(a.value == 3)
     {
         document.getElementById("del3").style.display = "inline-block";
         document.getElementById("del1").style.display = "none";
         document.getElementById("del2").style.display = "none";
+        $("#deliveryCost").empty();
+        $("#deliveryCost").html("Free");
+    }
+    if($("#deliveryCost").val()=="Free")
+    {
+        console.log("YES");
     }
 }
 function changeAddress()

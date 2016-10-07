@@ -97,7 +97,7 @@
          $qry = "SELECT ProductID, COUNT(ProductID) AS idCOUNT 
                  FROM orders
                  GROUP BY ProductID
-                 ORDER BY COUNT(ProductID) DESC LIMIT 6";
+                 ORDER BY 2 desc,1  LIMIT $limit";
          $result = $this->getConnection()->query($qry);
          return $result;
              

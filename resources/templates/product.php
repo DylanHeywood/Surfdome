@@ -85,20 +85,26 @@ $i=1;
         }
    echo "</div>
     <div class='productimages'>
-        <div class='displayimage'><img onclick='image(this.src)' src='".$img1."'></div>
-        <div class='displayimage'><img onclick='image(this.src)' src='".$img2."'></div>
-        <div class='displayimage'><img onclick='image(this.src)' src='".$img3."'></div>
-    </div>
+        <div class='displayimage'><img onclick='image(this.src)' src='".$img1."'></div>";
+        if(isset($img2))
+        {
+            echo "<div class='displayimage'><img onclick='image(this.src)' src='".$img2."'></div>";
+        }
+        if(isset($img3))
+        {
+            echo "<div class='displayimage'><img onclick='image(this.src)' src='".$img3."'></div>";
+        }
+    echo "</div>
 </div>
 <div id='productinfo'>
 <h1>".$name."</h1>
 <div id='pricestock'>
     <div id='price'>";
-        $qry = "SELECT AVG(Price) as cost,SUM(QTY) as stock FROM orders WHERE ProductID = ?";
-        $stmt = $con->prepare($qry);
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $qry = "SELECT Price as cost,SUM(QTY) as stock FROM purchases WHERE ProductID = ?";
+$stmt = $con->prepare($qry);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
             $qry2 = "SELECT SUM(QTY) as sold FROM purchases WHERE ProductID = ?";
             $stmt2 = $con->prepare($qry2);
@@ -114,17 +120,17 @@ $i=1;
     <div id='stock'>
         <p>Product Code: <b>".$id."</b></p>";
         echo "<p>Availablity: <b>";
-        if($stock>5)
+        if($stock=0)
         {
-            echo "In Stock";
+            echo "Out Of Stock";
         }
-        elseif($stock>0)
+        elseif($stock>0 and $stock<5)
         {
             echo "Low Stock";
         }
         else
         {
-            echo "Out Of Stock";
+            echo "In Stock";
         }
         echo "</b></p>
     </div>
@@ -139,41 +145,26 @@ $i=1;
     <div id='productsize'>
     <h4>Size:</h4>
     <select name='size'>";
-    $qry = "SELECT DISTINCT SizeID FROM options WHERE ProductID = ?";
-    $stmt = $con->prepare($qry);
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-        $qry2 = "SELECT Size from sizes WHERE ID=?";
+        $qry2 = "SELECT * from sizes";
         $stmt2 = $con->prepare($qry2);
-        $stmt2->bind_param('i', $row['SizeID']);
         $stmt2->execute();
         $result2 = $stmt2->get_result();
         while ($row2 = $result2->fetch_assoc()) {
-            echo "<option value='".$row['SizeID']."'>".$row2['Size']."</option>";
+            echo "<option value='".$row2['ID']."'>".$row2['Size']."</option>";
         }
-    }
     echo "</select>
     </div><Hr>
     <div id='productsize'>
          <h4>Colour:</h4>
         <select name='colour'>";
-        $qry = "SELECT DISTINCT ColourID FROM options WHERE ProductID = ?";
-        $stmt = $con->prepare($qry);
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        while ($row = $result->fetch_assoc()) {
-            $qry2 = "SELECT Colour from colours WHERE ID=?";
+            $qry2 = "SELECT * from colours";
             $stmt2 = $con->prepare($qry2);
             $stmt2->bind_param('i', $row['ColourID']);
             $stmt2->execute();
             $result2 = $stmt2->get_result();
             while ($row2 = $result2->fetch_assoc()) {
-                echo "<option value='".$row['ColourID']."'>".$row2['Colour']."</option>";
+                echo "<option value='".$row2['ID']."'>".$row2['Colour']."</option>";
             }
-        }
         echo "</select>
     </div><hr>
     <div id='productqty'>

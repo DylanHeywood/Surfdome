@@ -20,11 +20,11 @@
     require_once ("../resources/core/init.php");
     if(isset($_SESSION['UserLoggedIn']))
     {
-        $useremail = $_SESSION['UserLoggedIn'];
+    $useremail = $_SESSION['UserLoggedIn'];
     }
     elseif(isset($_COOKIE['UserLoggedIn']))
     {
-        $useremail = $_COOKIE['UserLoggedIn'];
+    $useremail = $_COOKIE['UserLoggedIn'];
     }
         $qry = "SELECT ID FROM users WHERE Email = ?";
         $stmt = $con->prepare($qry);
@@ -110,6 +110,10 @@
         elseif($url[3]=="checkout" && $url[4]==null)
         {
             require_once("../resources/templates/checkout.php");
+        }
+        elseif($url[3]=="deliveryaddresses")
+        {
+            header("Location: ../deliveryaddresses.php");
         }
     ?>
     </body>

@@ -20,8 +20,6 @@ body
     position: absolute;
     top: 20px;
     left: 10%;
-    width: 80%;
-    background-color: clear;
     height: 500px;
 }
 #headbackground img
@@ -189,7 +187,6 @@ body
 }
 #welcome
 {
-    font-weight: heavy;
     color: #333;
     background-color: #F9E609;
     margin-top: 100px;
@@ -558,10 +555,8 @@ body
     max-width: 1200px;
 }
 
-@media screen all and max-width(1200) {
     body {
         max-width: initial;
         width: initial;
         margin-left: initial;
     }
-}

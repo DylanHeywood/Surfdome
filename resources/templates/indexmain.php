@@ -28,7 +28,7 @@ echo "<section id='products'>
                         <a class='nostyle' href='./product/".$name."/'><div class='product'>";
                             while($row2 = $result2->fetch_assoc())
                             {
-                                echo "<div class='productimg'> <img src='".$row2['URL']."'</img></div> ";
+                                echo "<div class='productimg'> <img src='".$row2['URL']."'</img></div>";
                             }
                             echo "<div class='productname'> Product: ".$row['Name']."</div>";
                             while($row3 = $result3->fetch_assoc())
@@ -50,6 +50,7 @@ echo "<section id='products'>
                        $stmt3->execute();
                        $result3 = $stmt3->get_result();
                        echo "
+                        <a class='nostyle' href='./product/" . $name . "/'>
                         <div class='product'>";
                        while($row2 = $result2->fetch_assoc())
                        {
@@ -58,9 +59,9 @@ echo "<section id='products'>
                        echo "<div class='productname'> Product: ".$row['Name']."</div>";
                        while($row3 = $result3->fetch_assoc())
                        {
-                           echo "<div class='productprice'>£".$row['Price']."</div>";
+                           echo "<div class='productprice'>£".$row3['Price']."</div>";
                        }
-                       echo "</div>";
+                       echo "</div></a>";
                        $i++;
                    }
                 echo "</div>";
@@ -87,56 +88,60 @@ echo "<section id='products'>
                     $stmt4 = $con->prepare($qry4);
                     $stmt4->execute();
                     $result4 = $stmt4->get_result();
+                      while($row4 = $result4->fetch_assoc())
+                      {
+                          $name = $row4['Name'];
+                      }
                     echo "
+                    <a class='nostyle' href='./product/" . $name . "/'>
                     <div class='product'>";
                     while($row2 = $result2->fetch_assoc())
                     {
                         echo "<div class='productimg'> <img src='".$row2['URL']."'</img></div> ";
                     }
-                    while($row4 = $result4->fetch_assoc())
-                    {
-                        echo "<div class='productname'> Product: ".$row4['Name']."</div>";
-                    }
+                        echo "<div class='productname'> Product: ".$name."</div>";
                     while($row3 = $result3->fetch_assoc())
                     {
-                        echo "<div class='productprice'>£".$row['Price']."</div>";
+                        echo "<div class='productprice'>£".$row3['Price']."</div>";
                     }
                     echo "</div>";
                     $i++;
                     }
-                    echo "</div><div id='top2'>";
+                    echo "</div></a><div id='top2'>";
                    while($i <= 6 && $i>3 && $row = $productnames->fetch_array())
                    {
-                       $qry2 = "SELECT URL from images WHERE ProductID =". $row['ProductID']."";
+                       $qry2 = "SELECT URL from images WHERE ProductID =". $row['ProductID']." LIMIT 1";
                        $stmt2 = $con->prepare($qry2);
                        $stmt2->execute();
                        $result2 = $stmt2->get_result();
-                       $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ProductID']."";
+                       $qry3 = "SELECT Price from purchases WHERE ProductID =". $row['ProductID']." LIMIT 1";
                        $stmt3 = $con->prepare($qry3);
                        $stmt3->execute();
                        $result3 = $stmt3->get_result();
-                       $qry4 = "SELECT Name from products WHERE ID =". $row['ProductID']."";
+                       $qry4 = "SELECT Name from products WHERE ID =". $row['ProductID']." LIMIT 1";
                        $stmt4 = $con->prepare($qry4);
                        $stmt4->execute();
                        $result4 = $stmt4->get_result();
+                       while($row4 = $result4->fetch_assoc())
+                       {
+                           $name = $row4['Name'];
+                       }
                        echo "
+                    <a class='nostyle' href='./product/" . $name . "/'>
                     <div class='product'>";
                        while($row2 = $result2->fetch_assoc())
                        {
                            echo "<div class='productimg'> <img src='".$row2['URL']."'</img></div> ";
                        }
-                       while($row4 = $result4->fetch_assoc())
-                       {
-                           echo "<div class='productname'> Product: ".$row4['Name']."</div>";
-                       }
+                           echo "<div class='productname'> Product: ".$name."</div>";
                        while($row3 = $result3->fetch_assoc())
                        {
-                           echo "<div class='productprice'>£".$row['Price']."</div>";
+                           echo "<div class='productprice'>£".$row3['Price']."</div>";
                        }
                        echo "</div>";
                        $i++;
                    }
-                echo "</div>";
+                echo "</div></a>";
 
 
 
@@ -175,7 +180,7 @@ echo "<section id='products'>
                     $url = $finalimage['URL'];
                     echo "<div class='product'>
                     <div class='productimg'><img src='".$url."' alt=''></img></div>
-                    <div class='productname'>Product: ".$finalproduct["Name"]."</div>
+                    <div class='productname'>Product: ".$name."</div>
                     <div class='productprice'>£".$finalprice['Price']."</div></div>";
             }
             echo "</div>";       

@@ -9,6 +9,7 @@ $_SESSION['purchases'];
     $size = $_POST['size'];
     $colour = $_POST['colour'];
     $quantity = $_POST['qty'];
+echo $id." , ".$size." , ".$colour." , ".$quantity."<br>";
 if ($_SESSION['purchases']!= null)
 {
     foreach($_SESSION['purchases'] as $row)

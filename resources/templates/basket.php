@@ -42,7 +42,7 @@ else
             </section>
             <section id='basketoptions'>
                 <a href='./basket/'><div class='basketoptn'>VIEW CART</div></a>
-                <div class='basketoptn'>CHECKOUT</div>
+                <a href='./checkout/'><div class='basketoptn'>CHECKOUT</div></a>
             </section>
             <section id='searchsite'>
                 <input type='text' placeholder='SEARCH' name='search' id='search'>
@@ -50,4 +50,3 @@ else
                 <div id='searchicon'><i class='fa fa-search' aria-hidden='true'></i></div>
             </section>
         </section>";
-?>
